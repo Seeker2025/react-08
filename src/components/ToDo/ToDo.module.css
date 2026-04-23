@@ -1,0 +1,19 @@
+.listGroupItem{
+  
+    background-color: brown;
+    height: 50px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btnClose{
+    width: 24px;
+    height: 24px;
+}

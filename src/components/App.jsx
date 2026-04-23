@@ -1,7 +1,25 @@
 import Header from "./Header/Header";
 import Counter from "./Counter/Counter";
+import Modal from "./Modal/Modal";
+import ToDoList from "./ToDoList/ToDoList";
 
-export const App = () => {
+import { Component } from "react";
+
+
+class App extends Component {
+  state ={
+    isShowModal: false,
+  }
+
+  showModal =()=>{
+    this.setState({ isShowModal: true})
+  }
+
+  closeModal =()=>{
+    this.setState({ isShowModal: false})
+  }
+
+  render(){
   return (
     <>
         {/* <div
@@ -17,10 +35,16 @@ export const App = () => {
           React homework template
         </div> */}
 
-        <Header/>
+        <Header showModal={this.showModal}/>
 
         <Counter/>
 
+        {this.state.isShowModal && <Modal closeModal={this.closeModal}>Some</Modal>}
+
+         <ToDoList/> 
     </>
   );
+ }
 };
+
+export default App;

@@ -1,11 +1,13 @@
-const Header = () => {
+import css from './Header.module.css'
+
+const Header = ({ showModal }) => {
 return (
-    <nav className="navbar bg-dar">
-        <div className="container-fluid">
+    <nav className={css.navbar}>
+        <div className={css.containerFluid}>
             <span className="novbar-brand">
                 Navbar
             </span>
-            <button className="btn btn-outline-success">Open Modal</button>
+            <button className={css.btn} onClick={showModal}>Open Modal</button>
         </div>
     </nav>
 )

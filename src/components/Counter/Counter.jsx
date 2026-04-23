@@ -22,10 +22,10 @@ class Counter extends Component {
         <div className={css.position}>
             <div
                 className="card bg-dark"
-                style={{ width: '600px'}}
+                // style={{ width: '600px'}}
             >
 
-            <div className="card-body">
+            <div className={css.cardBody}>
                 <h5 className="card-title text-center">Counter</h5>
                 <p
                     className="card-text"
@@ -40,14 +40,14 @@ class Counter extends Component {
                     className={css.btn}
                     onClick={this.handleClickIncrement}
                     >
-                        <i  className="bi bi-plus"></i>
+                        <i  className="bi bi-plus">plus</i>
                     </button>
 
                     <button 
                     className={css.btn}
                     onClick={this.handleClickDecrement}
                     >
-                        <i  className="bi bi-dash"></i>
+                        <i  className="bi bi-dash">minus</i>
                     </button>
 
                 </div>
