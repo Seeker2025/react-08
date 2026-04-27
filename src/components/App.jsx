@@ -4,7 +4,8 @@ import Modal from "./Modal/Modal";
 import ToDoList from "./ToDoList/ToDoList";
 import FormLogin from "./FormRegistration/FormRegistration";
 
-import { Component } from "react";
+import { Component, useId } from "react";
+import { nanoid } from "nanoid";
 
 
 class App extends Component {
@@ -18,6 +19,15 @@ class App extends Component {
 
   closeModal =()=>{
     this.setState({ isShowModal: false})
+  }
+
+  createUser = (data) => {
+    console.log('data >>', data);
+    const newUser = {
+      ...data,
+      id: nanoid(),
+    }
+    
   }
 
   render(){
@@ -40,8 +50,12 @@ class App extends Component {
 
         <Counter/>
 
-        {this.state.isShowModal && <Modal closeModal={this.closeModal}>
-            <FormLogin/>  
+        {this.state.isShowModal &&
+        <Modal closeModal={this.closeModal}>
+            <FormLogin
+                  createUser={this.createUser}
+                  closeModal={this.closeModal}
+             />  
         </Modal>}
 
         <ToDoList/> 
