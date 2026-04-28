@@ -4,7 +4,9 @@ class FormRegistration extends Component {
     state = {
       email: '',
       password: '',
-      isChecked: false
+      isChecked: false,
+      gender: 'male',
+      
     }
 
     handleChange =({ target }) => {
@@ -18,7 +20,8 @@ class FormRegistration extends Component {
       e.preventDefault();
       this.props.createUser({
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
+        gender: this.state.gender,
       });
       
       this.setState({
@@ -29,9 +32,16 @@ class FormRegistration extends Component {
       this.props.closeModal();
     }
 
-    handleCheck = ({ target }) => {
-      console.log('target =>>', target.checked);
-      
+    handleCheck = ({ target: { checked }}) => {
+      // console.log('target =>>', target.checked);
+      this.setState({
+        isChecked: checked,
+      })
+   }
+
+    handleRadio = ({target}) => {
+       this.setState({gender: target.value })
+       console.log(target.value);
     }
 
     render() {
@@ -74,7 +84,43 @@ class FormRegistration extends Component {
       I agreed
     </label>
   </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
+
+  {/* Radios */}
+<div className="form-check">
+  <input
+   className="form-check-input"
+   type="radio"
+   name="radioDefault"
+   id="radioDefault1"
+   checked={this.state.gender === "male"}
+   onChange={this.handleRadio}
+   value="male"
+   />
+  <label className="form-check-label" htmlFor="radioDefault1">
+    Male
+  </label>
+</div>
+<div className="form-check">
+  <input
+  className="form-check-input"
+  type="radio"
+  name="radioDefault"
+  id="radioDefault2"
+  checked={this.state.gender === "female"}
+  onChange={this.handleRadio}
+  value="female"
+  />
+  <label className="form-check-label" htmlFor="radioDefault2">
+    Female
+  </label>
+</div>
+
+          <button 
+          type="submit"
+          className="btn btn-primary"
+          disabled={!this.state.isChecked}
+          >Submit
+          </button>
 </form>
         )
     }    
