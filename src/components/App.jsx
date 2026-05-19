@@ -4,8 +4,8 @@ import Modal from "./Modal/Modal";
 import ToDoList from "./ToDoList/ToDoList";
 import FormLogin from "./FormRegistration/FormRegistration";
 
-import { Component, useId } from "react";
-import { nanoid } from "nanoid";
+import { Component } from "react";
+// import { nanoid } from "nanoid";
 
 
 class App extends Component {
@@ -21,14 +21,14 @@ class App extends Component {
     this.setState({ isShowModal: false})
   }
 
-  createUser = (data) => {
-    console.log('data >>', data);
-    const newUser = {
-      ...data,
-      id: nanoid(),
-    }
+  // createUser = (data) => {
+  //   console.log('data >>', data);
+  //   const newUser = {
+  //     ...data,
+  //     id: nanoid(),
+  //   }
     
-  }
+  // }
 
   render(){
   return (
